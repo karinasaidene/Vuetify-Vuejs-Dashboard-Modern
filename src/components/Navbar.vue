@@ -1,10 +1,10 @@
 <template>
    <nav>
-       <v-app-bar  color="red" dark app >
+       <v-app-bar  color=#142850 dark app >
            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
            <v-toolbar-title class="text-uppercase ">
-               <span class="font-weight-light">AAE</span>
-               <span>IdeaPro</span>
+               <span class="font-weight-light">ESI-</span>
+               <span>LOG</span>
            </v-toolbar-title>
            <v-spacer></v-spacer>
            <v-menu offset-y>
@@ -28,7 +28,7 @@
                 <v-icon right>exit_to_app</v-icon>
              </v-btn>
        </v-app-bar>
-      <v-navigation-drawer  v-model="drawer" dark app class="red darken-4">
+      <v-navigation-drawer  v-model="drawer" dark app class="=#142850 darken-4">
           <v-layout column align-center>
                <v-flex class="mt-5"> 
                     <v-avatar size="100">
@@ -59,9 +59,13 @@ export default {
    data: () => ({
       drawer: true,
       links :[
-          {icon: 'dashboard', text:'Dashboard', route: '/'},
-          {icon: 'folder', text:'My Project', route: '/projects'},
-          {icon: 'person', text:'Team', route: '/team'}
+          {icon: 'dashboard', text:'Acceuil', route: '/'},
+          {icon: 'person', text:'Utilisateurs', route: '/utilisateur'},
+          {icon: 'history', text:'Historique', route: '/historique'},
+          {icon: 'person', text:'Saisie', route: '/saisie'},
+          {icon: 'person', text:'Recours', route: '/recours'},
+          {icon: 'person', text:'Parametres', route: '/parametres'}
+       
       ]
      
     }),
