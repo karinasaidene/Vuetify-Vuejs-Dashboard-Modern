@@ -1,41 +1,68 @@
 <template>
   <div class="projects">
-    <h1 class="subheading grey--text">Project</h1>
+    <h1 class="subheading grey--text">Liste du personnel de commission </h1>
     <v-container>
       <v-layout row wrap class="mb-4">
       <v-tooltip bottom>
       <template v-slot:activator="{ on }">
-        <v-btn small outlined color="green" @click="sortBy('title')" class="mr-2" dark v-on="on">
-           <v-icon left small>folder</v-icon>
-            <span class="caption text-lowercase">By project title</span>
+        <v-btn small outlined color="green" router to=/Inscription class="mr-2" dark v-on="on">
+           <v-icon left small>person</v-icon>
+            <span class="caption text-lowercase">ajouter utilisateur</span>
         </v-btn>
       </template>
-        <span>Sort project</span>
+        <span>s'inscrire</span>
       </v-tooltip>
        <v-tooltip bottom>
       <template v-slot:activator="{ on }">
-        <v-btn small outlined color="blue" @click="sortBy('title')" class="mr-2" dark v-on="on">
+        <v-btn small outlined color="blue" @click="sortBy('email')" class="mr-2" dark v-on="on">
            <v-icon left small>person</v-icon>
-            <span class="caption text-lowercase">By name</span>
+            <span class="caption text-lowercase">trier par email</span>
         </v-btn>
       </template>
-        <span>Sort person</span>
+        <span>trier personnel</span>
       </v-tooltip>
       </v-layout>
-      <v-card flat  v-for="project in projects" :key="project.title" class="mb-1">
-          <v-layout row wrap :class="`pa-3 project ${project.status}`">
+      <v-card flat  v-for="project in projects" :key="project.email" class="mb-1">
+          <v-layout row wrap :class="`pa-3 project ${project.type_profil}`">
             <v-flex xs12 md6>
-                <div class="caption grey--text">Project title</div>
-                <div >{{project.title}}</div>
+                <div class="caption grey--text">email</div>
+                <div >{{project.email}}</div>
             </v-flex>
             <v-flex xs6 sm4 md2>
-                <div class="caption grey--text">Person</div>
-                <div >{{project.person}}</div>
+                <div class="caption grey--text">mot de passe</div>
+                <div >{{project.password}}</div>
             </v-flex>
             <v-flex xs6 sm4 md2>
-                <div class="caption grey--text">Due By</div>
-                <div >{{project.due}}</div>
+                <div class="caption grey--text">type profil</div>
+                <div >{{project.type_profil}}</div>
             </v-flex>
+             <v-flex xs6 sm4 md2>
+                   <v-avatar size="30" class="red lighten-2">
+                     <img :src="project.photo_de_profil" alt="" >
+                   </v-avatar>
+            </v-flex>
+             <v-flex xs6 sm4 md1>
+                    <v-tooltip bottom>
+      <template v-slot:activator="{ on }">
+        <v-btn small outlined color="green"  class="mr-2" dark v-on="on">
+           <v-icon left small>delete</v-icon>
+            <span class="caption text-lowercase">supprimer</span>
+        </v-btn>
+      </template>
+        <span>supprimer cet utilisateur</span>
+      </v-tooltip>
+              </v-flex> 
+               <v-flex xs6 sm4 md1>
+                    <v-tooltip bottom>
+      <template v-slot:activator="{ on }">
+        <v-btn small outlined color="green"  class="mr-2" dark v-on="on">
+           <v-icon left small>infos</v-icon>
+            <span class="caption text-lowercase">infos</span>
+        </v-btn>
+      </template>
+        <span>information de cet utilisateur</span>
+      </v-tooltip>
+              </v-flex> 
           </v-layout>
       </v-card>
     </v-container>
@@ -45,52 +72,67 @@
 <script>
 // @ is an alias to /src
 
-
 export default {
-  name: 'projects',
-  components: {
-   
-  },
+  name: "projects",
+  components: {},
   data: () => ({
-    projects : [
-      {title: 'Site web ', person :'khaled', due: '10/10/1987', status:'no'},
-      {title: 'Application mobile', person :'Iyad', due: '02/07/1990', status:'complete'},
-      {title: 'Gestion de stock', person :'Zineb', due: '01/05/1987', status:'yes'},
-      {title: 'Conception', person :'Hu Java', due: '02/09/1991', status:'up'},
-    ]
+    projects: [
+      {
+        email: "zzzz@esi.dz",
+        password: "khaled@12@!ahmed",
+        type_profil: "valideur",
+        photo_de_profil: "/img1.png",
+        status: "no",
+      },
+      {
+        email: "aaaa@esi.dz",
+        password: "khaled@12!!ahmed",
+        type_profil: "editeur",
+        photo_de_profil: "/img1.png",
+        status: "complete",
+      },
+      {
+        email: "bbwz@esi.dz",
+        password: "khaled@12uu!ahmed",
+        type_profil: "valideur",
+        photo_de_profil: "/img1.png",
+        status: "yes",
+      },
+      {
+        email: "abrsh@esi.dz",
+        password: "khaled@1244!ahmed",
+        type_profil: "administrateur",
+        photo_de_profil: "/img1.png",
+        status: "up",
+      },
+    ],
   }),
   methods: {
-    sortBy(prop){
-      this.projects.sort((a,b) => a[prop] < b[prop] ? -1:1)
-    }
-  }
-}
+    sortBy(prop) {
+      this.projects.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
+    },
+  },
+};
 </script>
 <style >
-  .project.complete {
-      border-left: 4px solid #3cd1c2;
-  }
-  .project.no {
-      border-left: 4px solid orange;
-  }
-  .project.up {
-      border-left: 4px solid red;
-  }
-  .project.yes {
-      border-left: 4px solid yellow;
-  }
-   .v-chip.complete {
-      color: #3cd1c2;
-  }
-  .p.ovnored {
-      color: orange;
-  }
-  .p.up {
-      color:  red;
-  }
-  .p.yes {
-      color:  yellow;
-  }
+.project.valideur {
+  border-left: 4px solid #3cd1c2;
+}
+.project.editeur {
+  border-left: 4px solid orange;
+}
+.project.administrateur {
+  border-left: 4px solid red;
+}
+.v-chip.valideur {
+  color: #3cd1c2;
+}
+.p.ovnored {
+  color: orange;
+}
+.p.administrateur {
+  color: red;
+}
 </style>
 <!--import { babelParse } from '@vue/compiler-sfc';
 <template>

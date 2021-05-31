@@ -6,6 +6,7 @@ import Historique from '../views/Historique.vue'
 import Saisie from '../views/Saisie.vue'
 import Recours from '../views/Recours.vue'
 import Parametres from '../views/Parametres.vue'
+import Inscription from '../views/Inscription.vue'
 
 
 Vue.use(VueRouter)
@@ -45,7 +46,13 @@ const routes = [
     path: '/parametres',
     name: 'parametres',
     component: Parametres
+  },
+  {
+    path: '/Inscription',
+    name: 'inscription',
+    component: Inscription
   }
+
   
   
 ]

@@ -159,7 +159,7 @@ export default {
   }),
 }
 </script>-->
-<template>
+<!--<template>
   <div class="global">
     <form class="container">
       <button @click="show1" class="form-btn">
@@ -318,7 +318,7 @@ export default {
           </div>
         </div>
       </div>
-      <!--***************************************** */    -->
+      
       <div v-if="showform3">
         <div class="block">
           <div class="inputlabel">
@@ -464,5 +464,66 @@ label {
   top: 70px;
   left: 401px;
 }*/
-</style>
+</style>-->
+<template>
+  <v-row>
+    <v-col>
+      <v-sheet height="300" width="400" >
+        <v-calendar
+          ref="calendar"
+          :now="today"
+          :value="today"
+          :events="events"
+          color="primary"
+          type="week"
+        ></v-calendar>
+      </v-sheet>
+    </v-col>
+  </v-row>
+</template>
+<script>
+  export default {
+    data: () => ({
+      today: '2021-05-21',
+      events: [
+        {
+          name: 'debut quota',
+          start: '2021-05-21 09:00',
+          end: '2021-06-21 09:00',
+        },
+        {
+          name: 'periode recours',
+          start: '2021-06-01',
+        },
+      ],
+    }),
+    mounted () {
+      this.$refs.calendar.scrollToTime('08:00')
+    },
+  }
+</script>
+<style scoped>
+.my-event {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 2px;
+  background-color: #1867c0;
+  color: #ffffff;
+  border: 1px solid #1867c0;
+  font-size: 12px;
+  padding: 3px;
+  cursor: pointer;
+  margin-bottom: 1px;
+  left: 4px;
+  margin-right: 8px;
+  position: relative;
+}
 
+.my-event.with-time {
+  position: absolute;
+  right: 4px;
+  margin-right: 0px;
+}
+
+</style>

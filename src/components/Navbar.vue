@@ -64,7 +64,8 @@ export default {
           {icon: 'history', text:'Historique', route: '/historique'},
           {icon: 'person', text:'Saisie', route: '/saisie'},
           {icon: 'person', text:'Recours', route: '/recours'},
-          {icon: 'person', text:'Parametres', route: '/parametres'}
+          {icon: 'person', text:'Parametres', route: '/parametres'},
+          {icon: 'person', text:'Inscription', route: '/Inscription'}
        
       ]
      
