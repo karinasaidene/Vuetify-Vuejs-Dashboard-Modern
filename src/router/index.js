@@ -7,6 +7,8 @@ import Saisie from '../views/Saisie.vue'
 import Recours from '../views/Recours.vue'
 import Parametres from '../views/Parametres.vue'
 import Inscription from '../views/Inscription.vue'
+import Demandeurs from '../views/Demandeurs.vue'
+
 
 
 Vue.use(VueRouter)
@@ -51,7 +53,13 @@ const routes = [
     path: '/Inscription',
     name: 'inscription',
     component: Inscription
+  },
+  {
+    path: '/Demandeurs',
+    name: 'demandeurs',
+    component: Demandeurs
   }
+
 
   
   

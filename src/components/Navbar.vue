@@ -65,7 +65,8 @@ export default {
           {icon: 'person', text:'Saisie', route: '/saisie'},
           {icon: 'person', text:'Recours', route: '/recours'},
           {icon: 'person', text:'Parametres', route: '/parametres'},
-          {icon: 'person', text:'Inscription', route: '/Inscription'}
+          {icon: 'person', text:'Inscription', route: '/Inscription'},
+           {icon: 'person', text:'Demandeurs', route: '/Demandeurs'}
        
       ]
      

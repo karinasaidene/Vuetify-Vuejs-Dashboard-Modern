@@ -465,7 +465,7 @@ label {
   left: 401px;
 }*/
 </style>-->
-<template>
+<!--<template>
   <v-row>
     <v-col>
       <v-sheet height="300" width="400" >
@@ -480,6 +480,7 @@ label {
       </v-sheet>
     </v-col>
   </v-row>
+
 </template>
 <script>
   export default {
@@ -526,4 +527,64 @@ label {
   margin-right: 0px;
 }
 
+</style>-->
+<template>
+  <div class="team">
+    <h1 class="subheading grey--text">Statistiques</h1>
+    <v-container>
+      <v-layout row wrap>
+        <v-flex sm6 xs12 md6 lg3>
+          <v-card class="ma-3">
+            <v-list-item>
+              <v-list-item-avatar tile class="mt-n7">
+                <v-sheet color="green" width="80" height="80" elevation="10">
+                  <v-icon dark large>person</v-icon>
+                </v-sheet>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <div class="overline text-right">nombre demandeurs acceptes</div>
+                <v-list-item-title class="headline mb-1 text-right"
+                  >{{nb_demandeurs}}</v-list-item-title
+                >
+                <div><v-divider></v-divider></div>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
+        </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+        <v-flex sm6 xs12 md6 lg3>
+          <v-card class="ma-3">
+            <v-list-item>
+              <v-list-item-avatar tile class="mt-n7">
+                <v-sheet color="red" width="80" height="80" elevation="10">
+                  <v-icon dark large>person</v-icon>
+                </v-sheet>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <div class="overline text-right"> nombre demandeurs rejetes</div>
+                <v-list-item-title class="headline mb-1 text-right"
+                  >{{nb_rejetes}}</v-list-item-title
+                >
+                <div><v-divider></v-divider></div>
+              </v-list-item-content>
+            </v-list-item>
+          </v-card>
+        </v-flex>
+        </v-layout>
+      
+    </v-container>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+   nb_demandeurs:"40" ,
+   nb_rejetes:"10",
+  })
+};
+</script>
+
+<style>
 </style>
